@@ -30,6 +30,7 @@ then
     cd not-secret-secret
     sudo chmod +wrxwrxwrx *
     mv forward.sh ../
+    cd ..
     git clone https://github.com/libimobiledevice/libimobiledevice
     cd libimobiledevice
     ./autogen.sh
@@ -43,7 +44,6 @@ then
     sudo make install
     cd ..
     git clone https://github.com/libimobiledevice/idevicerestore
-    cd ..
     cd idevicerestore
     ./autogen.sh
     make
