@@ -6,6 +6,10 @@ if [ ! -e rerain-dep ]
 then
     echo "[-] Dependencies not found"
     echo "[*] Installing dependencies"
+    echo "[*] Checking Package Manager"
+    if [ $(which apt-get) ]; 
+    then
+    echo "[*] Package manager supported"
     mkdir rerain-dep
     cd rerain-dep
     sudo apt-get install libgcrypt20-doc gnutls-doc gnutls-bin usbmuxd git libplist-dev libplist++ python2.7-dev python3-dev libusbmuxd4 libreadline6-dev make libusb-dev openssl libimobiledevice-dev libzip-dev libcurl4-openssl-dev libssl-dev
@@ -51,6 +55,10 @@ then
     cd ..
     echo "[*] Dependencies installed"
     echo "[*] Restart program to continue"
+    else
+        echo "[-] Package manager not supported please go to the github page and open an issue adding you current package manager"
+        exit
+    fi
     exit
 fi
 if [ -e rerain-dep ]
@@ -220,4 +228,3 @@ ssh_window() {
     main_menu
 }
 main_menu
-
